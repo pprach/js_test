@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  BuildAndPushImage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: 363863453423.dkr.ecr.eu-central-1.amazonaws.com/test:latest
+          tags: 363863453423.dkr.ecr.eu-central-1.amazonaws.com/test:${{ github.sha }}
